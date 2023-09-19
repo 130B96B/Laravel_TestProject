@@ -28,11 +28,11 @@ private $occupation;
   public function __construct( $inputs )
   {
 
-    $type = [
+  $type = [
       'male' => '男性',
       'female' => '女性',
       ];
-  $type1=[
+  $job=[
           'employee' => '会社員',
           'self-employed' => '自営業',
   ];
@@ -45,7 +45,7 @@ private $occupation;
     $this->name = $inputs['name'];
     $this->tel = $inputs['tel'];
     $this->gender = $type[$inputs['gender']];
-    $this->occupation = $type1[$inputs['occupation']];
+    $this->occupation = $job[$inputs['occupation']];
 
   }
 

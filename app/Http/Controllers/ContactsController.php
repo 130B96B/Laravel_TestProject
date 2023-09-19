@@ -40,13 +40,13 @@ class ContactsController extends Controller
             'male' => '男性',
             'female' => '女性',
             ];
-            $type1 = [
+        $job = [
                 'employee' => '会社員',
                 'self-employed' => '自営業',
             ];
             
 
-            return view('contact.confirm', compact('inputs', 'type','type1'));
+            return view('contact.confirm', compact('inputs', 'type','job'));
     }
     public function send(Request $request)
 {
@@ -71,7 +71,7 @@ class ContactsController extends Controller
         'male' => '男性',
         'female' => '女性',
         ];
-    $type1=[
+    $job=[
             'employee' => '会社員',
             'self-employed' => '自営業',
     ];
@@ -84,12 +84,12 @@ class ContactsController extends Controller
         
     } else {
 
-        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs,$type,$type1));
-        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs,$type,$type1));
+        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs,$type,$job));
+        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs,$type,$job));
 
         $request->session()->regenerateToken();
 
-        return view('contact.thanks',  compact('inputs', 'type','type1'));
+        return view('contact.thanks',  compact('inputs', 'type','job'));
 
     }
 }
