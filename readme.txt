@@ -1,5 +1,3 @@
-430 419 408
-
 TestProject\routes\web.phpがroteファイル
 
 TestProject\resources\views\contactフォルダ内に
@@ -14,5 +12,4 @@ TestProject\public\css\style.cssがcssファイル
 TestProject\app\Http\Controllers\ContactsController.phpがメインのControllファイル
 TestProject\app\Mail\ContactsSendmail.phpがメール送信のControllファイル
 
-が入っております
-
+となっております。
