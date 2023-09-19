@@ -21,7 +21,7 @@
   <label>電話番号:</label>
   {{ $inputs['tell'] }}
   </div>
-  <input name="tell" value="{{ $inputs['tell'] }}" type="hidden">
+  <input name="tel" value="{{ $inputs['tel'] }}" type="hidden">
   <hr>
   <div class="Form-Item">
   <label>メールアドレス:</label>

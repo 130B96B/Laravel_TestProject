@@ -25,8 +25,8 @@
     <p class="Form-Item-Label"><span class="hissu">必須</span>電話番号</p>
     <input name="tel" value="{{ old('tel') }}" type="text" placeholder="例000-00000-0000"  class="Form-Item-Input">
 </div>
-    @if ($errors->has('tell'))
-        <p class="error-message">{{ $errors->first('tell') }}</p>
+    @if ($errors->has('tel'))
+        <p class="error-message">{{ $errors->first('tel') }}</p>
     @endif
  <hr>
  <div class="Form-Item">

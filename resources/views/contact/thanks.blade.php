@@ -18,7 +18,7 @@
   <hr>
   <div class="Form-Item">
   <label>電話番号:</label>
-  {{ $inputs['tell'] }}
+  {{ $inputs['tel'] }}
   </div>
   <hr>
   <div class="Form-Item">

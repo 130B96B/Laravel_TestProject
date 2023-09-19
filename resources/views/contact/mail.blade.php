@@ -7,7 +7,7 @@
 {!! $name !!}<br>
 <br>
 ■電話番号<br>
-{!! $tell !!}<br>
+{!! $tel !!}<br>
 <br>
 ■メールアドレス<br>
 {!! $email !!}<br>

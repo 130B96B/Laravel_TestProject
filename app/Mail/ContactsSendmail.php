@@ -43,7 +43,7 @@ private $occupation;
     $this->contact_body = $inputs['contact_body'];
     $this->birth_date = $inputs['birth_date'];
     $this->name = $inputs['name'];
-    $this->tell = $inputs['tell'];
+    $this->tel = $inputs['tel'];
     $this->gender = $type[$inputs['gender']];
     $this->occupation = $type1[$inputs['occupation']];
 
@@ -67,7 +67,7 @@ private $occupation;
             'contact_body' => $this->contact_body,
             'birth_date' => $this->birth_date,
             'name' =>   $this->name,
-            'tell' =>  $this->tell,
+            'tel' =>  $this->tel,
             'gender' =>   $this->gender,
             'occupation' =>  $this->occupation,
             ]);
