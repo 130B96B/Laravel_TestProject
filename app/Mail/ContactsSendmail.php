@@ -45,7 +45,7 @@ private $occupation;
     $this->name = $inputs['name'];
     $this->tell = $inputs['tell'];
     $this->gender = $type[$inputs['gender']];
-    $this->occupation = $type[$inputs['occupation']];
+    $this->occupation = $type1[$inputs['occupation']];
 
   }
 
