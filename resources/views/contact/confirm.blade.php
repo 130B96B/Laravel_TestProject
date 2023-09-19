@@ -19,7 +19,7 @@
   <hr>
   <div class="Form-Item">
   <label>電話番号:</label>
-  {{ $inputs['tell'] }}
+  {{ $inputs['tel'] }}
   </div>
   <input name="tel" value="{{ $inputs['tel'] }}" type="hidden">
   <hr>
