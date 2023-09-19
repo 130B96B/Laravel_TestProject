@@ -39,11 +39,14 @@ class ContactsController extends Controller
         $type = [
             'male' => '男性',
             'female' => '女性',
-            'employee' => '会社員',
-            'self-employed' => '自営業',
             ];
+            $type1 = [
+                'employee' => '会社員',
+                'self-employed' => '自営業',
+            ];
+            
 
-            return view('contact.confirm', compact('inputs', 'type'));
+            return view('contact.confirm', compact('inputs', 'type','type1'));
     }
     public function send(Request $request)
 {
@@ -67,9 +70,11 @@ class ContactsController extends Controller
     $type = [
         'male' => '男性',
         'female' => '女性',
-        'employee' => '会社員',
-        'self-employed' => '自営業',
         ];
+    $type1=[
+            'employee' => '会社員',
+            'self-employed' => '自営業',
+    ];
 
     if($action !== 'submit'){
 
@@ -79,12 +84,12 @@ class ContactsController extends Controller
         
     } else {
 
-        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs,$type));
-        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs,$type));
+        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs,$type,$type1));
+        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs,$type,$type1));
 
         $request->session()->regenerateToken();
 
-        return view('contact.thanks',  compact('inputs', 'type'));
+        return view('contact.thanks',  compact('inputs', 'type','type1'));
 
     }
 }
