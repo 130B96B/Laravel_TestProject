@@ -2,12 +2,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\ContactsSendmail;
+use App\Models\contacts;
+
 class ContactsController extends Controller
 {
     public function index()
     {
         return view('contact.index');
     }
+
     public function confirm(Request $request)
     {
 
@@ -48,6 +51,7 @@ class ContactsController extends Controller
 
             return view('contact.confirm', compact('inputs', 'type','job'));
     }
+
     public function send(Request $request)
 {
 
@@ -75,6 +79,19 @@ class ContactsController extends Controller
             'employee' => '会社員',
             'self-employed' => '自営業',
     ];
+
+    $post = new contacts();
+    $post->email = $request->email;
+    $post->company = $request->company;
+    $post->name = $request->name;
+    $post->tel = $request->tel;
+    $post->name = $request->name;
+    $post->tel = $request->tel;
+    $post->birth_date = $request->birth_date;
+    $post->gender = $request->gender;
+    $post->occupation = $request->occupation;
+    $post->contact_body = $request->contact_body;
+    $post->save();
 
     if($action !== 'submit'){
 
