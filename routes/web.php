@@ -29,8 +29,8 @@ Route::put('/update/{id}',[App\Http\Controllers\accunt_masterController::class, 
 //削除
 Route::delete('/destroy/{id}',[App\Http\Controllers\accunt_masterController::class, 'destroy'])->name('destroy');
 //お問い合わせ一覧
-Route::get('/account_master/contacts',[App\Http\Controllers\accunt_masterController::class, 'contacts'])->name('contacts');
+Route::get('/account_master/contacts',[App\Http\Controllers\account_mastar_contactController::class, 'contacts'])->name('contacts');
 //お問い合わせ編集
-Route::get('/account_master/contacts_edit/{id}',[App\Http\Controllers\accunt_masterController::class, 'contacts_edit'])->name('contacts_edit');
+Route::get('/account_master/contacts_edit/{id}',[App\Http\Controllers\account_mastar_contactController::class, 'contacts_edit'])->name('contacts_edit');
 //修正
-Route::put('/contacts_update/{id}',[App\Http\Controllers\accunt_masterController::class, 'contacts_update'])->name('contacts_update');
+Route::put('/contacts_update/{id}',[App\Http\Controllers\account_mastar_contactController::class, 'contacts_update'])->name('contacts_update');

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\accunts;
-use App\Models\contacts;
 
 class accunt_masterController extends Controller
 {
@@ -149,51 +148,4 @@ public function update(Request $request, $id)
     return redirect()->route('accounts_list')->with('success', '投稿が更新されました');
 }
 
-public function contacts()
-{  
-    $correspondence = [
-        'Outstanding' => '未対応',
-        'Processing' => '対応中',
-        'Closed' => '対応済',
-        ];
-    $posts = contacts::simplepaginate(10);
-    return view('account_master.contacts', ['posts' => $posts],compact('correspondence'));
-}
-
-public function contacts_edit($id)
-{
-    $posts = contacts::find($id);
-
-    $type = [
-        'male' => '男性',
-        'female' => '女性',
-        ];
-    $job=[
-            'employee' => '会社員',
-            'self-employed' => '自営業',
-    ];
-
-    return view('account_master/contacts_edit', ['posts' => $posts],compact('type','job'));
-}
-
-public function contacts_update(Request $request, $id)
-{
-
-$post = contacts::find($id);
-$post->remarks = $request->remarks;
-$post->status = $request->status;
-$post->email = $request->email;
-$post->company = $request->company;
-$post->name = $request->name;
-$post->tel = $request->tel;
-$post->name = $request->name;
-$post->tel = $request->tel;
-$post->birth_date = $request->birth_date;
-$post->gender = $request->gender;
-$post->occupation = $request->occupation;
-$post->contact_body = $request->contact_body;
-$post->save();
-
-return redirect()->route('contacts')->with('success', '投稿が更新されました');
-}
 }
