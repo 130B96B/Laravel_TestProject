@@ -8,40 +8,40 @@ use App\Models\contacts;
 class account_mastar_contactController extends Controller
 {
     public function contacts()
-    {  
+    {
         $correspondence = [
             'Outstanding' => '未対応',
             'Processing' => '対応中',
             'Closed' => '対応済',
-            ];
+        ];
         $posts = contacts::simplepaginate(10);
-        return view('account_master.contacts', ['posts' => $posts],compact('correspondence'));
+        return view('account_master.contacts', ['posts' => $posts], compact('correspondence'));
     }
-    
+
     public function contacts_edit($id)
     {
         $posts = contacts::find($id);
-    
+
         $type = [
             'male' => '男性',
             'female' => '女性',
-            ];
-        $job=[
-                'employee' => '会社員',
-                'self-employed' => '自営業',
         ];
-    
-        return view('account_master/contacts_edit', ['posts' => $posts],compact('type','job'));
+        $job = [
+            'employee' => '会社員',
+            'self-employed' => '自営業',
+        ];
+
+        return view('account_master/contacts_edit', ['posts' => $posts], compact('type', 'job'));
     }
-    
+
     public function contacts_update(Request $request, $id)
     {
-    
-    $post = contacts::find($id);
-    $post->remarks = $request->remarks;
-    $post->status = $request->status;
-    $post->save();
-    
-    return redirect()->route('contacts')->with('success', '投稿が更新されました');
+
+        $post = contacts::find($id);
+        $post->remarks = $request->remarks;
+        $post->status = $request->status;
+        $post->save();
+
+        return redirect()->route('contacts')->with('success', '投稿が更新されました');
     }
 }
