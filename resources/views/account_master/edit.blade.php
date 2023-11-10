@@ -41,7 +41,7 @@
         @endif
         <div class="Form-Item">
             <p class="Form-Item-Label"><span class="hissu">必須</span>郵便番号</p>
-            <input name="postalcode" value="{{ old('postalcode', $post->postalcode) }}" type="text" placeholder="例000-00000-0000" class="Form-Item-Input">
+            <input name="postalcode" value="{{ old('postalcode', $post->postalcode) }}" type="text" placeholder="例000-000" class="Form-Item-Input">
         </div>
         @if ($errors->has('postalcode'))
         <p class="error-message">{{ $errors->first('postalcode') }}</p>
