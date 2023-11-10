@@ -15,7 +15,7 @@
 
     <p><b>お問い合わせ内容</b></p>
     <div class="contactsItem">
-       {!! nl2br(e($posts['contact_body'])) !!} 
+       {!! nl2br(e($posts->contact_body)) !!} 
     </div>
 
     <p><b>備考</b></p>
@@ -25,25 +25,25 @@
 
     <p><b>お問い合わせ情報</b></p>
     <div class="contactsItem">
-      <label>会社名:</label> {{ $posts['company'] }}
+      <label>会社名:</label> {{ $posts->company }}
     </div>
     <div class="contactsItem">
-      <label>氏名:</label> {{ $posts['name'] }}
+      <label>氏名:</label> {{ $posts->name }}
     </div>
     <div class="contactsItem">
-      <label>電話番号:</label> {{ $posts['tel'] }}
+      <label>電話番号:</label> {{ $posts->tel }}
     </div>
     <div class="contactsItem">
-      <label>メールアドレス:</label> {{ $posts['email'] }}
+      <label>メールアドレス:</label> {{ $posts->email }}
     </div>
     <div class="contactsItem">
-      <label>生年月日:</label> {{ $posts['birth_date'] }}
+      <label>生年月日:</label> {{ $posts->birth_date }}
     </div>
     <div class="contactsItem">
-      <label>性別:</label> {{ $type[$posts['gender']] }}
+      <label>性別:</label> {{ $type[$posts->gender] }}
     </div>
     <div class="contactsItem">
-      <label>職業:</label> {{ $job[$posts['occupation']] }}
+      <label>職業:</label> {{ $job[$posts->occupation] }}
     </div>
     <button type="submit" class="btn2">登録する</button>
   </div>

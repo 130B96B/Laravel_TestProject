@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\accunts;
 
-class accunt_masterController extends Controller
+class AccountMastarController extends Controller
 {
 
         /**

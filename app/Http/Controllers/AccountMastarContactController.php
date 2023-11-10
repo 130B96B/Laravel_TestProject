@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contacts;
 
-class account_mastar_contactController extends Controller
+class AccountMastarContactController extends Controller
 {
     public function contacts()
     {
