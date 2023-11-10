@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\accunts;
+use App\Models\Accunts;
 
 class AccountMastarController extends Controller
 {
 
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -31,17 +31,17 @@ class AccountMastarController extends Controller
     {
 
         $request->validate([
-        'email' => ['required','email','unique:accuntmaster'],
-        'furigana' => ['required','max:30'],
-        'name' => ['required','max:30'],
-        'tel' => ['required','regex:/^[0-9\-]+$/'],
-        'password' =>  ['required','min:8'],
-        'postalcode' => ['required','regex:/^[0-9\-]+$/'],
-        'prefecture' => 'required',
-        'cities' => ['required','max:30'],
-        'address' => ['required','max:50'],
-        'contact_body' => ['max:255','nullable',]
-        ],[
+            'email' => ['required', 'email', 'unique:accuntmaster'],
+            'furigana' => ['required', 'max:30'],
+            'name' => ['required', 'max:30'],
+            'tel' => ['required', 'regex:/^[0-9\-]+$/'],
+            'password' =>  ['required', 'min:8'],
+            'postalcode' => ['required', 'regex:/^[0-9\-]+$/'],
+            'prefecture' => 'required',
+            'cities' => ['required', 'max:30'],
+            'address' => ['required', 'max:50'],
+            'contact_body' => ['max:255', 'nullable',]
+        ], [
             'name.required' =>  '会員名 は必須項目です。',
             'furigana.required' =>  'フリガナ は必須項目です。',
             'tel.required' =>  '電話番号 は必須項目です。',
@@ -63,7 +63,7 @@ class AccountMastarController extends Controller
             'email.unique' => 'このメールアドレスは既に登録されています。',
         ]);
 
-        $post = new accunts();
+        $post = new Accunts();
         $post->email = $request->email;
         $post->furigana = $request->furigana;
         $post->name = $request->name;
@@ -79,39 +79,40 @@ class AccountMastarController extends Controller
         return redirect('account_master/accounts_list');
     }
     public function accounts_list()
-    {   $posts = accunts::all();
+    {
+        $posts = Accunts::all();
         return view('account_master.accounts_list', ['posts' => $posts]);
     }
     public function destroy($id)
-{
-    $post = accunts::find($id);
-    if (!$post) {
-        return redirect()->route('accounts_list')->with('error', '投稿が見つかりません');
+    {
+        $post = Accunts::find($id);
+        if (!$post) {
+            return redirect()->route('accounts_list')->with('error', '投稿が見つかりません');
+        }
+
+        $post->delete();
+
+        return redirect()->route('accounts_list')->with('success', '投稿が削除されました');
     }
-
-    $post->delete();
-
-    return redirect()->route('accounts_list')->with('success', '投稿が削除されました');
-}
     public function edit($id)
-{
-    $post = accunts::find($id);
-    return view('account_master.edit', ['post' => $post]);
-}
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'email' => ['required','email'],
-        'furigana' => ['required','max:30'],
-        'name' => ['required','max:30'],
-        'tel' => ['required','regex:/^[0-9\-]+$/'],
-        'password' =>   ['required','min:8'],
-        'postalcode' => ['required','regex:/^[0-9\-]+$/'],
-        'prefecture' => 'required',
-        'cities' => ['required','max:30'],
-        'address' => ['required','max:50'],
-        'contact_body' => 'max:255',
-        ],[
+    {
+        $post = Accunts::find($id);
+        return view('account_master.edit', ['post' => $post]);
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'furigana' => ['required', 'max:30'],
+            'name' => ['required', 'max:30'],
+            'tel' => ['required', 'regex:/^[0-9\-]+$/'],
+            'password' =>   ['required', 'min:8'],
+            'postalcode' => ['required', 'regex:/^[0-9\-]+$/'],
+            'prefecture' => 'required',
+            'cities' => ['required', 'max:30'],
+            'address' => ['required', 'max:50'],
+            'contact_body' => 'max:255',
+        ], [
             'name.required' =>  '会員名 は必須項目です。',
             'furigana.required' =>  'フリガナ は必須項目です。',
             'tel.required' =>  '電話番号 は必須項目です。',
@@ -132,20 +133,19 @@ public function update(Request $request, $id)
             'email.email' =>  'メールアドレスを記入してください。',
         ]);
 
-    $post = accunts::find($id);
-    $post->email = $request->input('email');
-    $post->furigana = $request->input('furigana');
-    $post->name = $request->input('name');
-    $post->tel = $request->input('tel');
-    $post->password = $request->input('password');
-    $post->postalcode = $request->input('postalcode');
-    $post->prefecture = $request->input('prefecture');
-    $post->cities = $request->input('cities');
-    $post->address = $request->input('address');
-    $post->contact_body = $request->input('contact_body');
-    $post->save();
+        $post = Accunts::find($id);
+        $post->email = $request->input('email');
+        $post->furigana = $request->input('furigana');
+        $post->name = $request->input('name');
+        $post->tel = $request->input('tel');
+        $post->password = $request->input('password');
+        $post->postalcode = $request->input('postalcode');
+        $post->prefecture = $request->input('prefecture');
+        $post->cities = $request->input('cities');
+        $post->address = $request->input('address');
+        $post->contact_body = $request->input('contact_body');
+        $post->save();
 
-    return redirect()->route('accounts_list')->with('success', '投稿が更新されました');
-}
-
+        return redirect()->route('accounts_list')->with('success', '投稿が更新されました');
+    }
 }

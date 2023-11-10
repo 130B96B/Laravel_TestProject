@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Mail\ContactsSendmail;
-use App\Models\contacts;
+use App\Models\Contacts;
 
 class ContactsController extends Controller
 {
@@ -15,15 +17,15 @@ class ContactsController extends Controller
     {
 
         $request->validate([
-        'email' => ['required','email'],
-        'company' => ['required','max:20'],
-        'name' => ['required','max:20'],
-        'tel' => ['required','regex:/^[0-9\-]+$/'],
-        'birth_date' => 'required',
-        'gender' => 'required',
-        'occupation' => 'required',
-        'contact_body' => 'required',
-        ],[
+            'email' => ['required', 'email'],
+            'company' => ['required', 'max:20'],
+            'name' => ['required', 'max:20'],
+            'tel' => ['required', 'regex:/^[0-9\-]+$/'],
+            'birth_date' => 'required',
+            'gender' => 'required',
+            'occupation' => 'required',
+            'contact_body' => 'required',
+        ], [
             'name.required' =>  '氏名 は必須項目です。',
             'company.required' =>  '会社名 は必須項目です。',
             'tell.required' =>  '電話番号 は必須項目です。',
@@ -42,72 +44,70 @@ class ContactsController extends Controller
         $type = [
             'male' => '男性',
             'female' => '女性',
-            ];
+        ];
         $job = [
-                'employee' => '会社員',
-                'self-employed' => '自営業',
-            ];
-            
+            'employee' => '会社員',
+            'self-employed' => '自営業',
+        ];
 
-            return view('contact.confirm', compact('inputs', 'type','job'));
+
+        return view('contact.confirm', compact('inputs', 'type', 'job'));
     }
 
     public function send(Request $request)
-{
+    {
 
-    $request->validate([
-        'email' => ['required','email'],
-        'company' => ['required','max:20'],
-        'name' => ['required','max:20'],
-        'tel' => ['required','regex:/^[0-9\-]+$/'],
-        'birth_date' => 'required',
-        'gender' => 'required',
-        'occupation' => 'required',
-        'contact_body' => 'required',
-  ]);
+        $request->validate([
+            'email' => ['required', 'email'],
+            'company' => ['required', 'max:20'],
+            'name' => ['required', 'max:20'],
+            'tel' => ['required', 'regex:/^[0-9\-]+$/'],
+            'birth_date' => 'required',
+            'gender' => 'required',
+            'occupation' => 'required',
+            'contact_body' => 'required',
+        ]);
 
 
-    $action = $request->input('action');
+        $action = $request->input('action');
 
-    $inputs = $request->except('action');
+        $inputs = $request->except('action');
 
-    $type = [
-        'male' => '男性',
-        'female' => '女性',
+        $type = [
+            'male' => '男性',
+            'female' => '女性',
         ];
-    $job=[
+        $job = [
             'employee' => '会社員',
             'self-employed' => '自営業',
-    ];
+        ];
 
-    $post = new contacts();
-    $post->email = $request->email;
-    $post->company = $request->company;
-    $post->name = $request->name;
-    $post->tel = $request->tel;
-    $post->name = $request->name;
-    $post->tel = $request->tel;
-    $post->birth_date = $request->birth_date;
-    $post->gender = $request->gender;
-    $post->occupation = $request->occupation;
-    $post->contact_body = $request->contact_body;
-    $post->save();
+        $post = new contacts();
+        $post->email = $request->email;
+        $post->company = $request->company;
+        $post->name = $request->name;
+        $post->tel = $request->tel;
+        $post->name = $request->name;
+        $post->tel = $request->tel;
+        $post->birth_date = $request->birth_date;
+        $post->gender = $request->gender;
+        $post->occupation = $request->occupation;
+        $post->contact_body = $request->contact_body;
+        $post->save();
 
-    if($action !== 'submit'){
+        if ($action !== 'submit') {
 
-        return redirect()
-        ->route('contact.index')
-        ->withInput($inputs);
-        
-    } else {
+            return redirect()
+                ->route('contact.index')
+                ->withInput($inputs);
+        } else {
 
-        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs,$type,$job));
-        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs,$type,$job));
+            \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs, $type, $job));
+            \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs, $type, $job));
 
-        $request->session()->regenerateToken();
+            $request->session()->regenerateToken();
 
-        return view('contact.thanks',  compact('inputs', 'type','job'));
-
+            return view('contact.thanks',  compact('inputs', 'type', 'job'));
+        }
     }
-}
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\contacts;
+use App\Models\Contacts;
 
 class AccountMastarContactController extends Controller
 {
@@ -14,13 +14,13 @@ class AccountMastarContactController extends Controller
             'Processing' => '対応中',
             'Closed' => '対応済',
         ];
-        $posts = contacts::simplepaginate(10);
+        $posts = Contacts::simplepaginate(10);
         return view('account_master.contacts', ['posts' => $posts], compact('correspondence'));
     }
 
     public function contacts_edit($id)
     {
-        $posts = contacts::find($id);
+        $posts = Contacts::find($id);
 
         $type = [
             'male' => '男性',
@@ -37,7 +37,7 @@ class AccountMastarContactController extends Controller
     public function contacts_update(Request $request, $id)
     {
 
-        $post = contacts::find($id);
+        $post = Contacts::find($id);
         $post->remarks = $request->remarks;
         $post->status = $request->status;
         $post->save();
