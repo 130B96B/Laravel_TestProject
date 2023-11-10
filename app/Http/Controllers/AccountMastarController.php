@@ -25,7 +25,7 @@ class AccountMastarController extends Controller
 
     public function registration()
     {
-        return view('account_master.New_member_registration');
+        return view('account_master.new_member_registration');
     }
     public function confirm(Request $request)
     {

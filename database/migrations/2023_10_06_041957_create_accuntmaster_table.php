@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('prefecture');
             $table->string('cities');
             $table->string('address');
-            $table->text('contact_body');
+            $table->text('contact_body')->nullable();
             $table->timestamps();
         });
     }
