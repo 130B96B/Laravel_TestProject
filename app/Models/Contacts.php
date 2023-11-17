@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Contacts extends Model
 {
     protected $table = 'contacts';
-    protected $fillable = ['status','content', 'remarks'.'tel', 'company','name','gender'.'email', 'birth_date', 'occupation','id'];
+    protected $fillable = ['status','content', 'remarks','tel', 'company','name','gender','email', 'birth_date', 'occupation','id','contact_body'];
     protected $dates =  ['created_at', 'updated_at'];
 }

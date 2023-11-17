@@ -17,7 +17,7 @@ private $company;
 private $contact_body;
 private $birth_date;
 private $name;
-private $tell;
+private $tel;
 private $gender;
 private $occupation;
   /**
@@ -25,19 +25,9 @@ private $occupation;
   *
   * @return void
   */
-  public function __construct( $inputs )
+  public function __construct($inputs, $type, $job)
   {
 
-  $type = [
-      'male' => '男性',
-      'female' => '女性',
-      ];
-  $job=[
-          'employee' => '会社員',
-          'self-employed' => '自営業',
-  ];
-
-    // コンストラクタでプロパティに値を格納
     $this->email = $inputs['email'];
     $this->company = $inputs['company'];
     $this->contact_body = $inputs['contact_body'];
