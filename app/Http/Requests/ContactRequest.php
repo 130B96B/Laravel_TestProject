@@ -51,5 +51,5 @@ class ContactRequest extends FormRequest
             'occupation.required' =>  '職業 は必須項目です。',
             'contact_body.required' =>  'お問い合わせ内容 は必須項目です。',
         ];
-      }
+    }
 }

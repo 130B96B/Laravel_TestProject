@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;;
-
 use App\Models\Contacts;
 use App\Mail\ContactsSendmail;
 use App\Http\Requests\ContactRequest;
