@@ -51,7 +51,7 @@ class AccountMastarController extends Controller
         if (!$post) {
             return redirect()->route('accounts_list')->with('error', '投稿が見つかりません');
         }
-        $post->delete();
+        $post->destroy($id);
 
         return redirect()->route('accounts_list')->with('success', '投稿が削除されました');
     }
