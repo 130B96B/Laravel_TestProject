@@ -12,17 +12,14 @@
         <option value="Closed" {{ old('status', $posts->status) === 'Closed' ? 'selected' : ''}}>対応済</option>
       </select>
     </div>
-
     <p><b>お問い合わせ内容</b></p>
     <div class="contactsItem">
-       {!! nl2br(e($posts->contact_body)) !!} 
+       {!! nl2br(e($posts->contact_body)) !!}
     </div>
-
     <p><b>備考</b></p>
     <div class="contactsItem">
       <textarea name="remarks" class="Item-Textarea" rows="5">{{ old('remarks',$posts->remarks) }}</textarea>
     </div>
-
     <p><b>お問い合わせ情報</b></p>
     <div class="contactsItem">
       <label>会社名:</label> {{ $posts->company }}
