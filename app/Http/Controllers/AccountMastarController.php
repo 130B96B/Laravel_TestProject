@@ -48,11 +48,9 @@ class AccountMastarController extends Controller
     public function destroy($id)
     {
         $post = Accunts::find($id);
-
         if (!$post) {
             return redirect()->route('accounts_list')->with('error', '投稿が見つかりません');
         }
-
         $post->delete();
 
         return redirect()->route('accounts_list')->with('success', '投稿が削除されました');
