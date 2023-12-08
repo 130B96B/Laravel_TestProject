@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AccountMastarRequest extends FormRequest
@@ -24,16 +25,16 @@ class AccountMastarRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email',Rule::unique('accuntmaster')->ignore($this->id)],
             'furigana' => ['required', 'max:30'],
             'name' => ['required', 'max:30'],
-            'tel' => ['required', 'regex:/^[0-9\-]+$/'],
+            'tel' => ['required','digits_between:10,12'],
             'password' =>  ['required', 'min:8'],
-            'postalcode' => ['required', 'regex:/^[0-9\-]+$/'],
+            'postalcode' => ['required', 'digits:7'],
             'prefecture' => 'required',
             'cities' => ['required', 'max:30'],
             'address' => ['required', 'max:50'],
-            'contact_body' => ['max:255', 'nullable',],
+            'contact_body' => ['max:255', 'nullable'],
         ];
     }
     public function messages()
@@ -54,9 +55,10 @@ class AccountMastarRequest extends FormRequest
             'cities.max' =>  '市区町村は30文字より多く記入出来ません。',
             'address.max' =>  '番号・アパート名は50文字より多く記入出来ません。',
             'contact_body.max' =>  '備考欄は255文字より多く記入出来ません。',
-            'tel.regex' =>  'ハイフン付き半角数字のみ記入してください。',
-            'postalcode.regex' =>  'ハイフン付き半角数字のみ記入してください。',
+            'tel.digits_between' =>  '10~12字の半角数字のみ記入してください。',
+            'postalcode.digits' =>  '7字の半角数字のみ記入してください。',
             'email.email' =>  'メールアドレスを記入してください。',
+            'email.unique' =>  'このメールアドレスは既に使用されています。',
         ];
     }
 

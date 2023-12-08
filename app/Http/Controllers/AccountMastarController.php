@@ -29,11 +29,6 @@ class AccountMastarController extends Controller
     }
     public function confirm(AccountMastarRequest $request)
     {
-        $request->validate([
-            'email' => 'unique:accuntmaster'
-        ], ['email.unique' => 'このメールアドレスは既に登録されています。'
-        ]);
-
         $post = new Accunts();
         $post->fill($request->all())->save();
 

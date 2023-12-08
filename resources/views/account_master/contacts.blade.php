@@ -23,6 +23,6 @@
     </tr>
     @endforeach
 </table>
-<div class=pagination> {{ $posts->links() }} </div>
+<div class="pagination"> {{ $posts->links() }} </div>
 
 @endsection
