@@ -454,13 +454,9 @@ h1{
     cursor: pointer;
 }
 
-.pagination{
+.pagination nav{
     display:flex;
     justify-content: flex-end;
-}
-
-.pagenation nav{
-    display:flex;
 }
 
 .contacts_edit{

@@ -7,10 +7,10 @@
   <div class="contactsedit">
     <p><b>ステータス</b></p>
     <div class="contactsItem"> <select name="status" class="Item-Input-ex">
-        <option value="Outstanding" {{ old('status', $posts->status) === 'Outstanding' ? 'selected' : ''}}>未対応</option>
-        <option value="Processing" {{ old('status', $posts->status) === 'Processing' ? 'selected' : ''}}>対応中</option>
-        <option value="Closed" {{ old('status', $posts->status) === 'Closed' ? 'selected' : ''}}>対応済</option>
-      </select>
+        @foreach(config('status') as $key => $correspondence)
+        <option value="{{ $correspondence }}" {{ old('status', $posts->status) === $correspondence ? 'selected' : ''}}>{{ $correspondence }}</option>
+        @endforeach
+    </select>
     </div>
     <p><b>お問い合わせ内容</b></p>
     <div class="contactsItem">

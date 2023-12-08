@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->nullable()->default('Outstanding');
+            $table->string('status')->nullable()->default('未対応');
             $table->string('contact_body');
             $table->text('remarks')->nullable();
             $table->string('company');

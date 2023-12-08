@@ -20,6 +20,7 @@ class AccountMastarContactController extends Controller
         $posts = Contacts::find($id);
         $type = config('const.type');
         $job = config('const.job');
+        $correspondence = config('const.correspondence');
 
         return view('account_master/contacts_edit', ['posts' => $posts], compact('type', 'job'));
     }
