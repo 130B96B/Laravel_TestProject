@@ -9,20 +9,16 @@ class AccountMastarContactController extends Controller
 {
     public function contacts()
     {
-        $correspondence = config('const.correspondence');
         $posts = Contacts::simplepaginate(10);
 
-        return view('account_master.contacts', ['posts' => $posts], compact('correspondence'));
+        return view('account_master.contacts', ['posts' => $posts]);
     }
 
     public function contacts_edit($id)
     {
         $posts = Contacts::find($id);
-        $type = config('const.type');
-        $job = config('const.job');
-        $correspondence = config('const.correspondence');
 
-        return view('account_master/contacts_edit', ['posts' => $posts], compact('type', 'job'));
+        return view('account_master/contacts_edit', ['posts' => $posts]);
     }
 
     public function contacts_update(Request $request, $id)

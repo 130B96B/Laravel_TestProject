@@ -7,7 +7,7 @@
   <div class="contactsedit">
     <p><b>ステータス</b></p>
     <div class="contactsItem"> <select name="status" class="Item-Input-ex">
-        @foreach(config('status') as $key => $correspondence)
+        @foreach(config('const.correspondence') as $key => $correspondence)
         <option value="{{ $correspondence }}" {{ old('status', $posts->status) === $correspondence ? 'selected' : ''}}>{{ $correspondence }}</option>
         @endforeach
     </select>
@@ -37,10 +37,10 @@
       <label>生年月日:</label> {{ $posts->birth_date }}
     </div>
     <div class="contactsItem">
-      <label>性別:</label> {{ $type[$posts->gender] }}
+      <label>性別:</label> {{ $posts->gender }}
     </div>
     <div class="contactsItem">
-      <label>職業:</label> {{ $job[$posts->occupation] }}
+      <label>職業:</label> {{ $posts->occupation }}
     </div>
     <button type="submit" class="btn2">登録する</button>
   </div>

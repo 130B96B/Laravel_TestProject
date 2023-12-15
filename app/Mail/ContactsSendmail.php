@@ -25,7 +25,7 @@ private $occupation;
   *
   * @return void
   */
-  public function __construct($inputs, $type, $job)
+  public function __construct($inputs)
   {
 
     $this->email = $inputs['email'];
@@ -34,8 +34,8 @@ private $occupation;
     $this->birth_date = $inputs['birth_date'];
     $this->name = $inputs['name'];
     $this->tel = $inputs['tel'];
-    $this->gender = $type[$inputs['gender']];
-    $this->occupation = $job[$inputs['occupation']];
+    $this->gender = $inputs['gender'];
+    $this->occupation = $inputs['occupation'];
 
   }
 

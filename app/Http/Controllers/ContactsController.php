@@ -17,28 +17,24 @@ class ContactsController extends Controller
     {
 
         $inputs = $request->all();
-        $type = config('const.type');
-        $job = config('const.job');
 
-        return view('contact.confirm', compact('inputs', 'type', 'job'));
+        return view('contact.confirm', compact('inputs'));
     }
 
     public function send(ContactRequest $request)
     {
 
         $inputs = $request->except('action');
-        $type = config('const.type');
-        $job = config('const.job');
 
         $post = new contacts();
         $post->fill($request->all())->save();
 
-        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs, $type, $job));
-        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs, $type, $job));
+        \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs));
+        \Mail::to('kaitokitaguchi170@gmail.com')->send(new ContactsSendmail($inputs));
 
         $request->session()->regenerateToken();
 
-        return view('contact.thanks',  compact('inputs', 'type', 'job'));
+        return view('contact.thanks',  compact('inputs'));
 
     }
 }

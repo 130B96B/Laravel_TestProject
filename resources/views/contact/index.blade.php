@@ -48,8 +48,9 @@
         <div class="Form-Item">
             <p class="Form-Item-Label"><span class="hissu">必須</span>性別</p>
             <div class="Form-Item-Input-ex2">
-                <label><input type="radio" name="gender" value="male" {{ old('gender') === 'male' ? 'checked' : '' }} />男性</label>
-                <label><input type="radio" name="gender" value="female" {{ old('gender') === 'female' ? 'checked' : '' }} />女性</label>
+                @foreach(config('const.type') as $key => $type)
+                <label><input type="radio" name="gender" value="{{ $type }}" {{ old('gender') === $type ? 'checked' : '' }} />{{ $type }}</label>
+                @endforeach
             </div>
         </div>
         @if ($errors->has('gender'))
@@ -59,9 +60,9 @@
         <div class="Form-Item">
             <p class="Form-Item-Label"><span class="hissu">必須</span>職業</p>
             <select name="occupation" class="Form-Item-Input-ex">
-                <option value="">-職業を選択してください-</option>
-                <option value="employee" {{ old('occupation') === 'employee' ? 'selected' : ''}}>会社員</option>
-                <option value="self-employed" {{ old('occupation') === 'self-employed' ? 'selected' : ''}}>自営業</option>
+                @foreach(config('const.job') as $key => $job)
+                <option value="{{ $job }}" {{ old('occupation') === $job ? 'selected' : ''}}>{{ $job }}</option>
+                @endforeach
             </select>
         </div>
         @if ($errors->has('occupation'))

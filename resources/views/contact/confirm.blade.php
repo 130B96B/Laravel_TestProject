@@ -37,13 +37,13 @@
     <hr>
     <div class="Form-Item">
       <label>性別:</label>
-      {{ $type[$inputs['gender']]}}
+      {{ $inputs['gender'] }}
     </div>
     <input name="gender" value="{{ $inputs['gender'] }}" type="hidden">
     <hr>
     <div class="Form-Item">
       <label>職業:</label>
-      {{ $job[$inputs['occupation']]}}
+      {{ $inputs['occupation'] }}
     </div>
     <input name="occupation" value="{{ $inputs['occupation'] }}" type="hidden">
     <hr>
