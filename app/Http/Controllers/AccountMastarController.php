@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Accunts;
+use Illuminate\Http\Request;
 use App\Http\Requests\AccountMastarRequest;
 
 class AccountMastarController extends Controller
@@ -37,9 +38,9 @@ class AccountMastarController extends Controller
     public function accounts_list()
     {
         $posts = Accunts::all();
-
-        return view('account_master.accounts_list', ['posts' => $posts]);
+        return view('account_master.accounts_list',  compact('posts'));
     }
+
     public function destroy($id)
     {
         $post = Accunts::find($id);
