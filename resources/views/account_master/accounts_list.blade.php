@@ -1,6 +1,14 @@
 @extends('layout.app')
 
 @section('content')
+
+        <form class="search-group">
+            <div class="form-group">
+            <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力">
+            </div>
+            <input type="submit" value="検索" class="search-btn">
+        </form>
+
     <div class=A>
         <div class=accountlist>アカウント一覧</div>
         <div class="new_registration"><a href="{{ route('registration') }}">新規登録</a></div>

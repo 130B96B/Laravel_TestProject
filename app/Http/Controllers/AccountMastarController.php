@@ -35,9 +35,15 @@ class AccountMastarController extends Controller
 
         return redirect('account_master/accounts_list');
     }
-    public function accounts_list()
+    public function accounts_list(Request $request)
     {
-        $posts = Accunts::all();
+        $posts = Accunts::orderBy('created_at', 'asc')->where(function ($query) {
+
+            if ($search = request('search')) {
+                $query->where('name', 'LIKE', "%{$search}%");
+            }
+        })->paginate(8);
+
         return view('account_master.accounts_list',  compact('posts'));
     }
 
