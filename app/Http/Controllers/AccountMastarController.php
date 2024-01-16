@@ -26,7 +26,7 @@ class AccountMastarController extends Controller
 
     public function registration()
     {
-        return view('account_master.new_member_registration');
+        return view('account_master.account.new_member_registration');
     }
     public function confirm(AccountMastarRequest $request)
     {
@@ -42,9 +42,9 @@ class AccountMastarController extends Controller
             if ($search = request('search')) {
                 $query->where('name', 'LIKE', "%{$search}%");
             }
-        })->paginate(8);
+        })->get();
 
-        return view('account_master.accounts_list',  compact('posts'));
+        return view('account_master.account.accounts_list',  compact('posts'));
     }
 
     public function destroy($id)
@@ -61,7 +61,7 @@ class AccountMastarController extends Controller
     {
         $post = Accunts::find($id);
 
-        return view('account_master.edit', ['post' => $post]);
+        return view('account_master.account.edit', ['post' => $post]);
     }
     public function update(AccountMastarRequest $request, $id)
     {

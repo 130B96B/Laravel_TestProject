@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="HOME" id="HOME">HOME</div>
-
 <div class="box" id="box">
     <div class="space">
         <label class="Member_registration">アカウント登録</label>

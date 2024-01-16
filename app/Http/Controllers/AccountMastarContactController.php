@@ -11,14 +11,14 @@ class AccountMastarContactController extends Controller
     {
         $posts = Contacts::simplepaginate(10);
 
-        return view('account_master.contacts', ['posts' => $posts]);
+        return view('account_master.contact.contacts', ['posts' => $posts]);
     }
 
     public function contacts_edit($id)
     {
         $posts = Contacts::find($id);
 
-        return view('account_master/contacts_edit', ['posts' => $posts]);
+        return view('account_master.contact.contacts_edit', ['posts' => $posts]);
     }
 
     public function contacts_update(Request $request, $id)

@@ -53,7 +53,6 @@
       {!! nl2br(e($inputs['contact_body'])) !!}
     </div>
     <input name="contact_body" value="{{ $inputs['contact_body'] }}" type="hidden">
-
     <button type="submit" name="action" value="submit" class="btn">送信する</button>
     <button type="submit" name="action" value="back" class="btn">戻る</button>
   </div>

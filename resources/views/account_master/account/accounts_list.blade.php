@@ -1,13 +1,16 @@
 @extends('layout.app')
 
 @section('content')
-
+    <div>
+        <label for="name1" class="search-group">名前</label>
         <form class="search-group">
             <div class="form-group">
-            <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力">
+                <input type="search" class="form-control mr-sm-2" name="search" value="{{ request('search') }}"
+                placeholder="キーワードを入力" id="name1">
             </div>
             <input type="submit" value="検索" class="search-btn">
         </form>
+    </div>
 
     <div class=A>
         <div class=accountlist>アカウント一覧</div>
