@@ -18,7 +18,6 @@
     <link href="{{ asset('css/account_master.css') }}" rel="stylesheet">
 </head>
 <body>
-<body>
   <div class="menu-container" id="menu-container">
     <div id="hamburger" class="hamburger">
         <div class="bar"></div>
@@ -54,6 +53,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-</body>
 </body>
 </html>

@@ -1,15 +1,39 @@
 @extends('layout.app')
 
 @section('content')
-    <div>
-        <label for="name1" class="search-group">名前</label>
-        <form class="search-group">
-            <div class="form-group">
-                <input type="search" class="form-control mr-sm-2" name="search" value="{{ request('search') }}"
-                placeholder="キーワードを入力" id="name1">
-            </div>
-            <input type="submit" value="検索" class="search-btn">
-        </form>
+    <div class="search">
+        <div>
+            <label for="name1" class="search-group">名前</label>
+            <form class="search-group">
+                <div class="form-group">
+                    <input type="search" class="form-control mr-sm-2" name="name1" value="{{ request('search') }}"
+                        placeholder="キーワードを入力" id="name1">
+                </div>
+                <input type="submit" value="検索" class="search-btn">
+            </form>
+        </div>
+
+        <div>
+            <label for="email1" class="search-group">メールアドレス</label>
+            <form class="search-group">
+                <div class="form-group">
+                    <input type="search" class="form-control mr-sm-2" name="email1" value="{{ request('search') }}"
+                        placeholder="キーワードを入力" id="email1">
+                </div>
+                <input type="submit" value="検索" class="search-btn">
+            </form>
+        </div>
+
+        <div>
+            <label for="prefecture1" class="search-group">都道府県</label>
+            <form class="search-group">
+                <div class="form-group">
+                    <input type="search" class="form-control mr-sm-2" name="prefecture1" value="{{ request('search') }}"
+                        placeholder="キーワードを入力" id="prefecture1">
+                </div>
+                <input type="submit" value="検索" class="search-btn">
+            </form>
+        </div>
     </div>
 
     <div class=A>

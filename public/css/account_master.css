@@ -516,6 +516,12 @@ p {
     font-size: 20px;
 }
 
+.search{
+    margin-top: 10px;
+    display: flex;
+    justify-content:flex-start
+}
+
 .search-group{
     display: flex;
     margin-left: 50px;
