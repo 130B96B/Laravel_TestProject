@@ -33,7 +33,12 @@
     </div>
 </div>
 <div class="admin_backgraund">
-<div class="admin">管理者</div>
+<div class="admin">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+</div>
+
 </div>
      @yield('content')
 <script>

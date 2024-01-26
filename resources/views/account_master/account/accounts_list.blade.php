@@ -6,17 +6,17 @@
             <div class="search-groups">
                 <div class="form-group">
                     <label for="name1" class="search-group">名前</label>
-                    <input type="search" class="form-control mr-sm-2" name="name1" value="{{ request('search') }}"
+                    <input type="search" class="form-control mr-sm-2" name="name1" value="{{ request('name1') }}"
                         placeholder="名前を入力" id="name1">
                 </div>
                 <div class="form-group">
                     <label for="email1" class="search-group">メールアドレス</label>
-                    <input type="search" class="form-control mr-sm-2" name="email1" value="{{ request('search') }}"
+                    <input type="search" class="form-control mr-sm-2" name="email1" value="{{ request('email1') }}"
                         placeholder="メールアドレスを入力" id="email1">
                 </div>
                 <div class="form-group">
                     <label for="prefecture1" class="search-group">都道府県</label>
-                    <input type="search" class="form-control mr-sm-2" name="prefecture1" value="{{ request('search') }}"
+                    <input type="search" class="form-control mr-sm-2" name="prefecture1" value="{{ request('prefecture1') }}"
                         placeholder="都道府県を入力" id="prefecture1">
                 </div>
             </div>
