@@ -516,13 +516,18 @@ p {
     font-size: 20px;
 }
 
-.search{
-    margin-top: 10px;
+.search-groups{
     display: flex;
-    justify-content:flex-start
+    margin-left: 50px;
 }
 
 .search-group{
+    margin-top: 10px;
     display: flex;
+    flex-direction: column;
+}
+
+.search-btn{
+    margin-top: 10px;
     margin-left: 50px;
 }

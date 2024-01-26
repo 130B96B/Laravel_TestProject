@@ -43,16 +43,15 @@ class AccountMastarController extends Controller
                 $query->Where('name','LIKE',"%{$search}%")
                 ;
             }
-
             if ($search = request('email1')) {
                 $query->Where('email','LIKE',"%{$search}%")
                 ;
             }
-
             if ($search = request('prefecture1')) {
                 $query->Where('prefecture','LIKE',"%{$search}%")
                 ;
             }
+
         })->get();
 
         return view('account_master.account.accounts_list',  compact('posts'));

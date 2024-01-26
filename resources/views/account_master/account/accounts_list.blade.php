@@ -1,40 +1,29 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="search">
-        <div>
-            <label for="name1" class="search-group">名前</label>
-            <form class="search-group">
+    <div>
+        <form>
+            <div class="search-groups">
                 <div class="form-group">
+                    <label for="name1" class="search-group">名前</label>
                     <input type="search" class="form-control mr-sm-2" name="name1" value="{{ request('search') }}"
-                        placeholder="キーワードを入力" id="name1">
+                        placeholder="名前を入力" id="name1">
                 </div>
-                <input type="submit" value="検索" class="search-btn">
-            </form>
-        </div>
-
-        <div>
-            <label for="email1" class="search-group">メールアドレス</label>
-            <form class="search-group">
                 <div class="form-group">
+                    <label for="email1" class="search-group">メールアドレス</label>
                     <input type="search" class="form-control mr-sm-2" name="email1" value="{{ request('search') }}"
-                        placeholder="キーワードを入力" id="email1">
+                        placeholder="メールアドレスを入力" id="email1">
                 </div>
-                <input type="submit" value="検索" class="search-btn">
-            </form>
-        </div>
-
-        <div>
-            <label for="prefecture1" class="search-group">都道府県</label>
-            <form class="search-group">
                 <div class="form-group">
+                    <label for="prefecture1" class="search-group">都道府県</label>
                     <input type="search" class="form-control mr-sm-2" name="prefecture1" value="{{ request('search') }}"
-                        placeholder="キーワードを入力" id="prefecture1">
+                        placeholder="都道府県を入力" id="prefecture1">
                 </div>
-                <input type="submit" value="検索" class="search-btn">
-            </form>
-        </div>
+            </div>
+            <input type="submit" value="検索" class="search-btn">
+        </form>
     </div>
+
 
     <div class=A>
         <div class=accountlist>アカウント一覧</div>
