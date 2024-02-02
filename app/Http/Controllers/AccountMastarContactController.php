@@ -7,18 +7,30 @@ use App\Models\Contacts;
 
 class AccountMastarContactController extends Controller
 {
-    public function contacts()
+    public function contacts(Request $request)
     {
-        $posts = Contacts::simplepaginate(10);
+        $posts = Contacts::where(function ($query) {
 
-        return view('account_master.contact.contacts', ['posts' => $posts]);
+            if ($search = request('status1')) {
+                $query->where('status',$search);
+            }
+            if ($search = request('company1')) {
+                $query->where('company','LIKE',"%{$search}%");
+            }
+            if ($search = request('name2')) {
+                $query->where('name','LIKE',"%{$search}%");
+            }
+
+        })->simplepaginate(5);
+
+        return view('account_master.contact.contacts', compact('posts'));
     }
 
     public function contacts_edit($id)
     {
         $posts = Contacts::find($id);
 
-        return view('account_master.contact.contacts_edit', ['posts' => $posts]);
+        return view('account_master.contact.contacts_edit', compact('posts'));
     }
 
     public function contacts_update(Request $request, $id)

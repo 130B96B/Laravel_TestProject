@@ -37,19 +37,16 @@ class AccountMastarController extends Controller
     }
     public function accounts_list(Request $request)
     {
-        $posts = Accunts::orderBy('created_at', 'asc')->where(function ($query) {
+        $posts = Accunts::where(function ($query) {
 
             if ($search = request('name1')) {
-                $query->Where('name','LIKE',"%{$search}%")
-                ;
+                $query->where('name','LIKE',"%{$search}%");
             }
             if ($search = request('email1')) {
-                $query->Where('email','LIKE',"%{$search}%")
-                ;
+                $query->where('email','LIKE',"%{$search}%");
             }
             if ($search = request('prefecture1')) {
-                $query->Where('prefecture','LIKE',"%{$search}%")
-                ;
+                $query->where('prefecture','LIKE',"%{$search}%");
             }
 
         })->get();
