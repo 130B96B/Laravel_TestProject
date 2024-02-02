@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="name2" class="search-group">氏名</label>
-                <input type="search" class="form-control mr-sm-2" name="name2" value="{{ request('name1') }}"
+                <input type="search" class="form-control mr-sm-2" name="name2" value="{{ request('name2') }}"
                     placeholder="氏名を入力" id="name2">
             </div>
         </div>
