@@ -189,7 +189,8 @@ ul,li {
 }
 
 .admin{
-    padding-left: 1650px;
+    padding-left: 1550px;
+    padding-right: 10px;
     display: inline;
 }
 
