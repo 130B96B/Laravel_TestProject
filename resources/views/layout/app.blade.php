@@ -38,16 +38,16 @@
         <div class="admin">
             {{ Auth::user()->name }}
         </div>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <p>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
-            <a class="dropdown-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
+                <a class="dropdown-item"
+                    onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
-                {{ __('ログアウト') }}
-            </a>
+                    {{ __('ログアウト') }}
+                </a>
             </form>
-        </div>
+        </p>
     </div>
     @yield('content')
     <script>

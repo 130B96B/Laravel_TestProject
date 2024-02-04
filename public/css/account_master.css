@@ -532,3 +532,8 @@ p {
     margin-top: 10px;
     margin-left: 50px;
 }
+
+a:hover{
+    color: #B22222;
+    cursor: pointer;
+  }
